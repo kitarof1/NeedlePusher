@@ -1,0 +1,90 @@
+Determining if the Q_WS_X11 exist failed with the following output:
+Change Dir: /Users/SNR/Desktop/Galil/CMake/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec250189452/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec250189452.dir/build.make CMakeFiles/cmTryCompileExec250189452.dir/build
+"/Applications/CMake 2.8-8.app/Contents/bin/cmake" -E cmake_progress_report /Users/SNR/Desktop/Galil/CMake/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec250189452.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -arch x86_64 -I/Users/SNR/Slicer4/Qt-build/include -F/Users/SNR/Slicer4/Qt-build/lib    -o CMakeFiles/cmTryCompileExec250189452.dir/CheckSymbolExists.cxx.o -c /Users/SNR/Desktop/Galil/CMake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/Users/SNR/Desktop/Galil/CMake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: use of undeclared identifier 'Q_WS_X11'
+  return ((int*)(&Q_WS_X11))[argc];
+                  ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTryCompileExec250189452.dir/CheckSymbolExists.cxx.o] Error 1
+make: *** [cmTryCompileExec250189452/fast] Error 2
+
+File /Users/SNR/Desktop/Galil/CMake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_X11
+  return ((int*)(&Q_WS_X11))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_WIN exist failed with the following output:
+Change Dir: /Users/SNR/Desktop/Galil/CMake/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec963374187/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec963374187.dir/build.make CMakeFiles/cmTryCompileExec963374187.dir/build
+"/Applications/CMake 2.8-8.app/Contents/bin/cmake" -E cmake_progress_report /Users/SNR/Desktop/Galil/CMake/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec963374187.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -arch x86_64 -I/Users/SNR/Slicer4/Qt-build/include -F/Users/SNR/Slicer4/Qt-build/lib    -o CMakeFiles/cmTryCompileExec963374187.dir/CheckSymbolExists.cxx.o -c /Users/SNR/Desktop/Galil/CMake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/Users/SNR/Desktop/Galil/CMake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: use of undeclared identifier 'Q_WS_WIN'
+  return ((int*)(&Q_WS_WIN))[argc];
+                  ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTryCompileExec963374187.dir/CheckSymbolExists.cxx.o] Error 1
+make: *** [cmTryCompileExec963374187/fast] Error 2
+
+File /Users/SNR/Desktop/Galil/CMake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_WIN
+  return ((int*)(&Q_WS_WIN))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_QWS exist failed with the following output:
+Change Dir: /Users/SNR/Desktop/Galil/CMake/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2812924378/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2812924378.dir/build.make CMakeFiles/cmTryCompileExec2812924378.dir/build
+"/Applications/CMake 2.8-8.app/Contents/bin/cmake" -E cmake_progress_report /Users/SNR/Desktop/Galil/CMake/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2812924378.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -arch x86_64 -I/Users/SNR/Slicer4/Qt-build/include -F/Users/SNR/Slicer4/Qt-build/lib    -o CMakeFiles/cmTryCompileExec2812924378.dir/CheckSymbolExists.cxx.o -c /Users/SNR/Desktop/Galil/CMake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/Users/SNR/Desktop/Galil/CMake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: use of undeclared identifier 'Q_WS_QWS'
+  return ((int*)(&Q_WS_QWS))[argc];
+                  ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTryCompileExec2812924378.dir/CheckSymbolExists.cxx.o] Error 1
+make: *** [cmTryCompileExec2812924378/fast] Error 2
+
+File /Users/SNR/Desktop/Galil/CMake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_QWS
+  return ((int*)(&Q_WS_QWS))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <Screw>
+   <pitch>3.0</pitch>
+   <length>20.0</length>
+ </Screw>
+ <Motor>
+   <pair_poles>2</pair_poles>
+   <counts_per_rev>8192</counts_per_rev>
+   <max_speed>10000</max_speed>
+ </Motor>

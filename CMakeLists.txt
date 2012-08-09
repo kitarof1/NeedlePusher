@@ -1,87 +1,26 @@
-cmake_minimum_required(VERSION 2.8.7)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+PROJECT(GalilController)
 
-#-----------------------------------------------------------------------------
-if(NOT Slicer_SOURCE_DIR)
-  set(EXTENSION_NAME NeedlePusher)
-  set(EXTENSION_HOMEPAGE "http://www.slicer.org/slicerWiki/index.php/Documentation/4.1/Extensions/NeedlePusher")
-  set(EXTENSION_CATEGORY "Examples")
-  set(EXTENSION_CONTRIBUTORS "Jean-Christophe Fillion-Robin (Kitware)")
-  set(EXTENSION_DESCRIPTION "This is an example of extension bundling a loadable module")
-  set(EXTENSION_ICONURL "http://viewvc.slicer.org/viewvc.cgi/Slicer4/trunk/Extensions/Testing/NeedlePusher/Resources/Icons/NeedlePusher.png?revision=19437&view=co")
-  set(EXTENSION_SCREENSHOTURLS "http://wiki.slicer.org/slicerWiki/images/4/42/Slicer-r19441-NeedlePusher-screenshot.png")
+if( NOT CMAKE_BUILD_TYPE )
+  set( CMAKE_BUILD_TYPE Debug CACHE STRING
+       "Choose the type of build, options are: None Debug Release RelWithDebInfo
+MinSizeRel."
+       FORCE )
 endif()
 
-#-----------------------------------------------------------------------------
-set(MODULE_NAME NeedlePusher)
-set(MODULE_TITLE ${MODULE_NAME})
+###### Environment specific #######
+SET(CMAKE_OSX_ARCHITECTURES "x86_64"
+			    CACHE STRING "Build architectures for OSX" FORCE)
+SET(CMAKE_OSX_DEPLOYMENT_TARGET "10.8"
+				CACHE STRING "Build deployment target for 10.8" FORCE)
+SET(QT_QMAKE_EXECUTABLE /Users/SNR/Slicer4/Qt-build/bin/qmake)
+##################################
 
-string(TOUPPER ${MODULE_NAME} MODULE_NAME_UPPER)
+SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
-#-----------------------------------------------------------------------------
-if(NOT Slicer_SOURCE_DIR)
-  find_package(Slicer REQUIRED)
-  include(${Slicer_USE_FILE})
-endif()
+FIND_PACKAGE(Qt4 REQUIRED)
+INCLUDE(${QT_USE_FILE})
+SET(QT_USE_QTNETWORK TRUE)
 
-#-----------------------------------------------------------------------------
-add_subdirectory(Logic)
-add_subdirectory(Widgets)
-
-#-----------------------------------------------------------------------------
-set(MODULE_EXPORT_DIRECTIVE "Q_SLICER_QTMODULES_${MODULE_NAME_UPPER}_EXPORT")
-
-# Current_{source,binary} and Slicer_{Libs,Base} already included
-set(MODULE_INCLUDE_DIRECTORIES
-  ${CMAKE_CURRENT_SOURCE_DIR}/Logic
-  ${CMAKE_CURRENT_BINARY_DIR}/Logic
-  ${CMAKE_CURRENT_SOURCE_DIR}/Widgets
-  ${CMAKE_CURRENT_BINARY_DIR}/Widgets
-  )
-
-set(MODULE_SRCS
-  qSlicer${MODULE_NAME}Module.cxx
-  qSlicer${MODULE_NAME}Module.h
-  qSlicer${MODULE_NAME}ModuleWidget.cxx
-  qSlicer${MODULE_NAME}ModuleWidget.h
-  )
-
-set(MODULE_MOC_SRCS
-  qSlicer${MODULE_NAME}Module.h
-  qSlicer${MODULE_NAME}ModuleWidget.h
-  )
-
-set(MODULE_UI_SRCS
-  Resources/UI/qSlicer${MODULE_NAME}Module.ui
-  )
-
-set(MODULE_TARGET_LIBRARIES
-  vtkSlicer${MODULE_NAME}ModuleLogic
-  qSlicer${MODULE_NAME}ModuleWidgets
-  )
-
-set(MODULE_RESOURCES
-  Resources/qSlicer${MODULE_NAME}Module.qrc
-  )
-
-#-----------------------------------------------------------------------------
-slicerMacroBuildQtModule(
-  NAME ${MODULE_NAME}
-  TITLE ${MODULE_TITLE}
-  EXPORT_DIRECTIVE ${MODULE_EXPORT_DIRECTIVE}
-  INCLUDE_DIRECTORIES ${MODULE_INCLUDE_DIRECTORIES}
-  SRCS ${MODULE_SRCS}
-  MOC_SRCS ${MODULE_MOC_SRCS}
-  UI_SRCS ${MODULE_UI_SRCS}
-  TARGET_LIBRARIES ${MODULE_TARGET_LIBRARIES}
-  RESOURCES ${MODULE_RESOURCES}
-  )
-
-#-----------------------------------------------------------------------------
-if(BUILD_TESTING)
-  add_subdirectory(Testing)
-endif()
-
-#-----------------------------------------------------------------------------
-if(NOT Slicer_SOURCE_DIR)
-  include(${Slicer_EXTENSION_CPACK})
-endif()
+ADD_DEFINITIONS(${QT_DEFINITIONS})
+ADD_SUBDIRECTORY(src)
